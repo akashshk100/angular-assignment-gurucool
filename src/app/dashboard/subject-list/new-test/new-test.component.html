@@ -1,0 +1,51 @@
+<form (ngSubmit)="createTest()" #f="ngForm">
+    <h6>Host New Test</h6><br>
+    <div class="form-group">
+      <input type="text" class="form-control"  [value] = " subjectName " disabled />
+    </div>
+    <div class="form-group">
+      <input 
+      type="text" 
+      class="form-control"
+      placeholder="Title"
+      required
+      name="title"
+      ngModel
+      #title="ngModel">
+      <p class="help-block small" style="color: red;" *ngIf="title.valid && f.submitted">*required</p>
+    </div>
+    <div class="form-group">
+      <input 
+      type="number" 
+      class="form-control"
+      placeholder="No. Of Questions"
+      required
+      name="noOfQue"
+      ngModel
+      #noOfQue="ngModel">
+      <p class="help-block small" style="color: red;" *ngIf="noOfQue.valid && f.submitted">*required</p>
+    </div>
+    <div class="form-group">
+      <input 
+      type="number"
+      class="form-control" 
+      placeholder="Duration"
+      required
+      name="duration"
+      ngModel
+      #duration="ngModel">
+      <p class="help-block small" style="color: red;" *ngIf="duration.valid && f.submitted">*required</p>
+    </div>
+    <div class="form-group">
+      <input 
+      type="date" 
+      class="form-control" 
+      placeholder="yyyy-mm-dd hh:mm:ss"
+      required
+      name="deadline"
+      ngModel
+      #deadline="ngModel">
+      <p class="help-block small" style="color: red;" *ngIf="deadline.valid && f.submitted">*required</p>
+    </div>
+    <input type="submit" class="btn btn-outline-dark" value="Continue" />
+</form>

@@ -1,0 +1,39 @@
+<div class="row">
+    <div class="col-9">
+        <div class="container-fluid">
+            <br>
+            <h6>Subscribed Subjects</h6><br>
+            <div class="list-group border border-dark">
+                <div class="list-group-item list-group-item-action" *ngFor = " let subject of subjects; let i = index; " (mouseenter) = "enableOption(i)" (mouseleave) = "disableOption(i)">
+                    {{ subject }}
+                    <span class="float-right p-1" role="button" (click)="viewSubject(i)">
+                        <img src="../../../assets/arrow-right-square.svg" width="30" height="30">
+                    </span>
+                    <br>
+                    <span class="small p-3" *ngIf = "option[i]">
+                        Avg. Attendance: {{avgAttendance[i]}}
+                    </span>
+                    <span class="small p-3" *ngIf = "option[i]">
+                        Class: {{class[i]}}
+                    </span>
+                    <span class="small p-3" role="button" (click)="viewTest(i)" *ngIf = "option[i]">
+                        <img class="small" src="../../../assets/list-ul.svg"> Tests
+                    </span>
+                    <span class="small p-3" role="button" (click)="newTest(i)" *ngIf = "option[i]">
+                        <img class="small" src="../../../assets/plus.svg"> New Test
+                    </span>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <div class="col-3">
+        <div class="row border border-top-0 border-dark rounded-lg p-2">
+            <div class="container-fluid">
+                <router-outlet>
+                </router-outlet>
+            </div>
+        </div>
+    </div>
+</div>
+

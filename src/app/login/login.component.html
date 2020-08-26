@@ -1,0 +1,65 @@
+<div class="container-fluid">
+    <div class="row no-gutter">
+      <div class="d-none d-md-flex col-md-4 col-lg-6"></div>
+      <div class="col-md-8 col-lg-6">
+        <div class="login d-flex align-items-center py-5">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-9 col-lg-8 mx-auto">
+                <loader-tag *ngIf="isLoading"></loader-tag>
+                <h3 class="login-heading mb-4" style="text-align: center;">Welcome</h3>
+                <form *ngIf="!isLoading" (ngSubmit)= "onLogin(f)" #f = "ngForm">
+                  <div class="form-group">
+                    <div class="alert-danger form-control" *ngIf = "invalidPopin"><span class="text-center small"> Invalid Credentials </span></div>
+                  </div>
+                  <div class="form-group">
+                    <input 
+                    type="email" 
+                    class="form-control" 
+                    placeholder="Username"
+                    name = "username"
+                    ngModel 
+                    required 
+                    email
+                    autofocus 
+                    #username = "ngModel">
+                    <span class="help-block small" style=" color: red; " *ngIf = " !username.valid && username.touched">Enter valid username</span>
+                  </div>
+                  <div class="form-group">
+                    <div class="input-group">
+                      <input 
+                        type="password" 
+                        class="form-control" 
+                        placeholder="password" 
+                        name="password" 
+                        [(ngModel)] = " passwordText " 
+                        required
+                        #password = "ngModel">
+                        <div class="input-group-text" role="button" (click) = " onShowPassword() "><img src="../assets/eye.svg"></div>
+                    </div>
+                    <span class="help-block small p-2" *ngIf = " showPassword " > 
+                      Password: {{ passwordText }}
+                    </span>
+                    <span class="help-block small" style="color: red;" *ngIf = " !password.valid && password.touched" > 
+                      Enter Password
+                    </span>
+                  </div>
+                  <div class="custom-control custom-checkbox mb-3">
+                    <input type="checkbox" class="custom-control-input" id="customCheck1">
+                    <label class="custom-control-label" for="customCheck1">Remember password</label>
+                  </div>
+                  <button 
+                  class="btn btn-primary btn-login mb-2"
+                  [disabled] = " !f.valid ">Login</button>
+                  <div class="text-center">
+                    <a class="small" href="#">Forgot password?</a>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

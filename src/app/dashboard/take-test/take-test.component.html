@@ -1,0 +1,65 @@
+<div class="row container-fluid p-0">
+    <div class="col-9">
+        <div class="container">
+            <div class="row p-3">
+                <div class="col"><h5 style="text-align: center;">{{test.testTitle}}</h5></div>                
+            </div>
+            <div class="row p-3 border-bottom rounded border-dark">
+                <div class="col"><p style="text-align: center;"><img class="p-2" src="../../../assets/list-ol.svg">{{test.noOfQue}}</p></div>
+                <div class="col"><p style="text-align: center;"> <img class="p-2" src="../../../assets/clock.svg">{{test.testDuration}} mins</p></div>
+                <div class="col"><p style="text-align: center;"> <img class="p-2" src="../../../assets/calendar.svg">{{test.testDeadline | date}}</p></div>
+            </div>
+            <div class="row p-3 border-bottom border-right rounded border-dark" *ngFor="let question of questions; let i = index">
+                <form class="container-fluid" #f="ngForm">
+                    <div class="form-group">
+                        <p>Question {{i+1}}.</p>
+                    </div>    
+                    <div class="form-group">
+                        <p>{{question.que}}</p>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" class="custom-control-input" id="op1" name="defaultExampleRadios">
+                                    <label class="custom-control-label" for="op1">{{question.op1}}</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" class="custom-control-input" id="op2" name="defaultExampleRadios">
+                                    <label class="custom-control-label" for="op2">{{question.op2}}</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-100"></div>
+                        <div class="col">
+                            <div class="custom-control custom-radio">
+                                <input type="radio" class="custom-control-input" id="op3" name="defaultExampleRadios">
+                                <label class="custom-control-label" for="op3">{{question.op3}}</label>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" class="custom-control-input" id="op4" name="defaultExampleRadios">
+                                    <label class="custom-control-label" for="op4">{{question.op4}}</label>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                </form>
+            </div>
+            <div class="row p-3">
+                <button class="btn btn-outline-dark center" (click)="submit()">Done: Submit Test</button><br>
+            </div>
+        </div>
+    </div>
+    <div class="col-3 border-left">
+        <div class="container">
+
+        </div>
+    </div>
+</div>

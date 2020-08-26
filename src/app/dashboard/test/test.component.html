@@ -1,0 +1,159 @@
+<div class="row container-fluid p-0">
+    <div class="col-8">
+        <div class="container">
+            <div class="row p-3">
+                <div class="col"><h5 style="text-align: center;">{{testTitle}}</h5></div>                
+            </div>
+            <div class="row p-3 border-bottom rounded border-dark">
+                <div class="col"><p style="text-align: center;"><img class="p-2" src="../../../assets/list-ol.svg">{{noOfQue}}</p></div>
+                <div class="col"><p style="text-align: center;"> <img class="p-2" src="../../../assets/clock.svg">{{testDuration}} mins</p></div>
+                <div class="col"><p style="text-align: center;"> <img class="p-2" src="../../../assets/calendar.svg">{{testDeadline | date}}</p></div>
+            </div>
+            <div class="row p-3 border-bottom border-right rounded border-dark" *ngFor="let question of questions; let i = index">
+                <div class="alert alert-success container-fluid" role="alert" *ngIf="questionsDisplay[i]">
+                    <span class="small help-block">Question Added</span> 
+                    <span class="float-right small" role="button" (click)="changeQuestionDisplay(i)"><img class="p-3" src="../../../assets/pencil-square.svg">Edit</span>
+                </div>
+                <form class="container-fluid" #f="ngForm" *ngIf="!questionsDisplay[i]">
+                    <div class="form-group">
+                        <p>Question {{i+1}}.</p>
+                    </div>    
+                    <div class="form-group">
+                        <textarea 
+                        class="form-control"
+                        placeholder="Problem Statement"
+                        rows="4"
+                        name="que"
+                        ngModel
+                        required
+                        #que="ngModel"></textarea>
+                        <p class="help-block small" style="color: red;" *ngIf="!que.valid && que.touched">*required</p>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <input 
+                                type="text"
+                                placeholder="option 1"
+                                class="form-control"
+                                name="op1"
+                                ngModel
+                                required
+                                #op1="ngModel">
+                                <p class="help-block small" style="color: red;" *ngIf="!op1.valid && op1.touched">*required</p>
+                            </div>
+                        </div>
+                            <div class="col"><div class="form-group">
+                                <input 
+                                type="text"
+                                placeholder="option 2"
+                                class="form-control"
+                                name="op2"
+                                ngModel
+                                required
+                                #op2="ngModel">
+                                <p class="help-block small" style="color: red;" *ngIf="!op2.valid && op2.touched">*required</p>
+                            </div>
+                        </div>
+                        <div class="w-100"></div>
+                        <div class="col">
+                            <div class="form-group">
+                                <input 
+                                type="text"
+                                placeholder="option 3"
+                                class="form-control"
+                                name="op3"
+                                ngModel
+                                required
+                                #op3="ngModel">
+                                <p class="help-block small" style="color: red;" *ngIf="!op3.valid && op3.touched">*required</p>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <input 
+                                type="text"
+                                placeholder="option 4"
+                                class="form-control"
+                                name="op4"
+                                ngModel
+                                required
+                                #op4="ngModel">
+                                <p class="help-block small" style="color: red;" *ngIf="!op4.valid && op4.touched">*required</p>
+                            </div>
+                        </div>
+                      </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <input 
+                                type="number"
+                                placeholder="marks"
+                                class="form-control"
+                                name="marks"
+                                ngModel
+                                required
+                                #marks="ngModel">
+                                <p class="help-block small" style="color: red;" *ngIf="!marks.valid && marks.touched">*required</p>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <input 
+                                type="number"
+                                placeholder="correct option"
+                                class="form-control"
+                                name="correctOp"
+                                ngModel
+                                required
+                                #correctOp="ngModel">
+                                <p class="help-block small" style="color: red;" *ngIf="!correctOp.valid && correctOp.touched">*required</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a role="button" (click)="addQue(i,f)" [disable]="f.valid"><img class="p-2" src="../../../assets/plus.svg">Add</a>
+                </form>
+            </div>
+            <p class="help-block small" style="color: red;" *ngIf="formInvalidity">*Add all Questions</p> 
+            <div class="row p-3">
+                <button class="btn btn-outline-dark center" (click)="submit()">Done: Add Test</button><br>
+                
+            </div>
+            
+        </div>
+    </div>
+    <div class="col-4 border-left">
+        <div class="container">
+            <div class="row">
+                <div class="col"><h5 style="text-align: center;">Preveiw</h5></div>                
+            </div>
+            <div class="row border-bottom" *ngFor="let question of questions; let i = index">
+                <div class="row" *ngIf="question.que !== null">
+                    <p class="p-3 small text-justify">Q {{i+1}} . {{question.que}}</p>
+                </div>
+                <div class="row" *ngIf="question.que !== null">
+                    <div class="col">
+                        <p class="p-3 small text-justify">1. {{question.op1}}</p>
+                    </div>
+                    <div class="col">
+                        <p class="p-3 small text-justify">2. {{question.op2}}</p>
+                    </div>
+                    <div class="w-100"></div>
+                    <div class="col">
+                        <p class="p-3 small text-justify">3. {{question.op3}}</p>
+                    </div>
+                    <div class="col">
+                        <p class="p-3 small text-justify">4. {{question.op4}}</p>
+                    </div>
+                    <div class="w-100"></div>
+                    <div class="col">
+                        <p class="small text-justify"><img class="p-2" src="../../../assets/bookmark.svg" alt="">{{question.marks}}M</p>
+                    </div>
+                    <div class="col">
+                        <p class="small text-justify"><img class="p-2" src="../../../assets/check2-square.svg" alt="">{{question.correctOp}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

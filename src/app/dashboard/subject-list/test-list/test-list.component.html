@@ -1,0 +1,25 @@
+
+    <h6>Test history for {{ subjectName }}</h6><br>
+    <div class="list-group">
+        <div class="list-group-item list-group-item-action container-fluid" *ngFor = " let test of tests; let i = index; " (mouseenter) = "enableOption(i)" (mouseleave) = "disableOption(i)">
+            {{ test.testTitle }}
+            <br>
+            <span 
+                class = "small p-1"  
+                *ngIf = " option[i] ">
+                <img class="small" src="../../../../assets/calendar.svg"> {{test.testDeadline}}
+            </span>
+            <span 
+                class = "small p-1"  
+                *ngIf = " option[i] ">
+                <img class="small" src="../../../../assets/clock.svg"> {{test.testDuration}} Min
+            </span>
+            <span 
+                class = "small p-1" role="button"  
+                *ngIf = " option[i] "
+                (click)="startTest(i)">
+                <img class="small" src="../../../../assets/skip-start.svg"> Start Test
+            </span>
+        </div>
+    </div>
+

@@ -1,0 +1,63 @@
+<br><h6>Uploaded Lectures for {{ subjectName }}</h6><br>
+<div class="list-group border border-dark" *ngIf="emptyLecture">
+  <div class="list-group-item  list-group-item-action">
+    <p class="small">Empty List: No Lectures to Display</p>
+  </div>
+</div>
+<div class="list-group border border-dark" *ngIf="!emptyLecture">
+    <div class="list-group-item list-group-item-action" *ngFor = " let lecture of tempLectures; let i = index; " (mouseenter) = "enableOption(i)" (mouseleave) = "disableOption(i)">
+        {{lecture.topic}}
+        <span role="button" class="btn btn-outline-dark float-right dropdown-toggle" (click) = " changeDetailStatus(i)" >
+        </span>
+        <br>
+        <span 
+          class = "small p-3"
+          *ngIf = " option[i] ">Published: {{tempLectures[i].published | date}}
+        </span>
+        <span 
+          class = "small p-3"
+          *ngIf = " option[i] ">Attendance: {{tempLectures[i].attendancePercentage}}%
+        </span>
+        <span 
+          class = "small p-3" role="button" 
+          (click) = "editLecture(i)" 
+          *ngIf = " option[i] ">
+          <img class="small" src="../../../../assets/pencil-square.svg"> Edit 
+        </span>
+        <span 
+          class = "small p-3" role="button"
+          (click) = "deleteLecture(i)" 
+          *ngIf = " option[i] ">
+          <img class="small" src="../../../../assets/trash.svg"> Delete
+        </span>
+        <table class="table" [hidden] = " !detailStatus[i] ">
+            <tbody>
+              <tr>
+                <td>Topic</td>
+                <td>:</td>
+                <td>{{ lecture.topic }}</td>
+              </tr>
+              <tr>
+                <td>Description</td>
+                <td>:</td>
+                <td>{{ lecture.description }}</td>
+              </tr>
+              <tr>
+                <td>Attendance</td>
+                <td>:</td>
+                <td><a [href]= "lecture.attendance" >{{lecture.attendance}}</a></td>
+              </tr>
+              <tr>
+                <td>Resource</td>
+                <td>:</td>
+                <td><a [href]= "lecture.resource" >{{lecture.resource}}</a></td>
+              </tr>
+              <tr>
+                <td>Video</td>
+                <td>:</td>
+                <td><a [href]= "lecture.video" >{{lecture.resource}}</a></td>
+              </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
