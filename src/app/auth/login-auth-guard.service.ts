@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core'
-import { UserService } from './user.service'
+import { UserService } from '../user.service'
 import { ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router'
 import { Observable } from 'rxjs';
 
 
 @Injectable()
-export class AntiAuthGuard{
+export class LoginAuthGuard{
     constructor(private userService: UserService, private router: Router){
 
     }

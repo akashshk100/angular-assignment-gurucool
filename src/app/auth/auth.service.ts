@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
-import { UserService } from './user.service';
+import { UserService } from '../user.service';
 import { Injectable } from '@angular/core';
-import { User } from './user.model';
+import { User } from '../user.model';
 import { Router } from '@angular/router';
 
 @Injectable()
