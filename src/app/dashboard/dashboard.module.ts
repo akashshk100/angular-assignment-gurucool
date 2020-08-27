@@ -16,7 +16,6 @@ import { TestComponent } from './test/test.component'
 import { TakeTestComponent } from './take-test/take-test.component'
 import { DashboardRoutingModule } from './dashboard-routing.module'
 import { SharedModule } from '../shared/shared.module'
-import { HeaderComponent } from '../header/header.component';
 
 
 @NgModule({
@@ -31,8 +30,7 @@ import { HeaderComponent } from '../header/header.component';
         TestListComponent,
         NewStreamComponent,
         TestComponent,
-        TakeTestComponent,
-        HeaderComponent
+        TakeTestComponent
     ],
     imports :[
         CommonModule,

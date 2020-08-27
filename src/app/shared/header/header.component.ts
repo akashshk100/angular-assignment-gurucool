@@ -1,6 +1,6 @@
 import { Component, Output, EventEmitter, ViewChild, ElementRef } from "@angular/core"
 import { Router } from '@angular/router';
-import { UserService } from '../user.service'
+import { UserService } from '../../user.service'
 
 @Component({
     selector: 'head-comp',
