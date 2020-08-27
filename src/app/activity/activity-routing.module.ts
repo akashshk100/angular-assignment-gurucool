@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router'
 import { ActivityComponent } from './activity.component'
 
 const routes: Routes = [
-    {path: 'activity', component: ActivityComponent}
+    {path: '', component: ActivityComponent}
 ]
 
 @NgModule({

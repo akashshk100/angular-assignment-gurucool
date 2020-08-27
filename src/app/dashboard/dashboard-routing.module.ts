@@ -12,7 +12,7 @@ import { TestComponent } from './test/test.component'
 import { TakeTestComponent } from './take-test/take-test.component'
 
 const routes: Routes = [
-    {path: 'dashboard', canActivate: [AuthGuard] ,component: DashboardComponent, children: [
+    {path: '', canActivate: [AuthGuard] ,component: DashboardComponent, children: [
         {path: '', redirectTo: 'subject-list', pathMatch: 'full'},
         {path: 'subject-list', component: SubjectListComponent, children:[
           {path: '', redirectTo: 'select-sub', pathMatch: 'full'},

@@ -12,7 +12,7 @@ import { LoginAuthGuard } from './login-auth-guard.service'
     imports: [
         CommonModule, 
         FormsModule, 
-        RouterModule.forChild([{path: 'login', component: LoginComponent, canActivate: [LoginAuthGuard]}])
+        RouterModule.forChild([{path: '', component: LoginComponent, canActivate: [LoginAuthGuard]}])
     ]
 })
 export class AuthModule{

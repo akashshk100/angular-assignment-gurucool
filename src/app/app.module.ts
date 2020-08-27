@@ -10,11 +10,7 @@ import { NotFoundComponent } from './not-found/not-found.component'
 import { AuthGuard } from './auth/auth-guard.service';
 import { AuthService } from './auth/auth.service';
 import { LoginAuthGuard } from './auth/login-auth-guard.service'
-import { UserService } from './user.service';
-import { AuthModule } from './auth/auth.module'; 
-import { DashboardModule } from './dashboard/dashboard.module'
-import { ActivityModule } from './activity/activity.module'
-
+import { UserService } from './user.service'; 
 
 @NgModule({
   declarations: [
@@ -25,10 +21,7 @@ import { ActivityModule } from './activity/activity.module'
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    AppRoutingModule,
-    DashboardModule,
-    ActivityModule,
-    AuthModule
+    AppRoutingModule
   ],
   providers: [LectureService, AuthGuard, AuthService, UserService, LoginAuthGuard],
   bootstrap: [AppComponent]
