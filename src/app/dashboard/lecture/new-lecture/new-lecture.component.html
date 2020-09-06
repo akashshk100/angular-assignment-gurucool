@@ -1,5 +1,66 @@
-<form enctype="multipart/form-data" (ngSubmit) ="addLecture()" #f = "ngForm">
-    <h6>Upload/Update Lecture</h6><br>
+<div class="mat-title">Upload/Update lecture</div>
+
+<form #f = "ngForm">
+  <mat-form-field appearance="outline" style="width: 100%;">
+    <mat-label>Subject Name</mat-label>
+    <input 
+    matInput 
+    [value]="subjectName"
+    disabled>
+  </mat-form-field>
+  <mat-form-field appearance="outline" style="width: 100%;">
+    <mat-label>Topic</mat-label>
+    <input 
+    matInput
+    required
+    name="topic"
+    ngModel
+    #topic="ngModel">
+  </mat-form-field>
+  <mat-form-field appearance="outline" style="width: 100%;">
+    <mat-label>Description</mat-label>
+    <textarea 
+    rows="5"
+    matInput
+    required
+    name="description"
+    ngModel>
+    </textarea>
+  </mat-form-field>
+  <mat-form-field appearance="outline" style="width: 100%;">
+    <mat-label>Video File</mat-label>
+    <ngx-mat-file-input
+    name="videoFile"
+    ngModel
+    required
+    #videoFile = "ngModel"
+    [disabled]=" mode === 'update' "></ngx-mat-file-input>
+    <mat-icon matSuffix>folder</mat-icon>
+  </mat-form-field>
+  <mat-form-field appearance="outline" style="width: 100%;">
+    <mat-label>Resource File</mat-label>
+    <ngx-mat-file-input
+    name="resourceFile"
+    ngModel
+    required
+    #resourceFile = "ngModel"
+    [disabled]=" mode === 'update' "></ngx-mat-file-input>
+    <mat-icon matSuffix>folder</mat-icon>
+  </mat-form-field>
+  <p>
+    <button 
+    mat-raised-button 
+    color="primary"
+    [disabled] = "!f.valid "
+    onclick="this.blur()"
+    (click)="addLecture()"
+    style="outline: 0px;">
+      {{mode}}
+    </button>
+  </p>
+</form>
+
+<!-- <form enctype="multipart/form-data" (ngSubmit) ="addLecture()" #f = "ngForm">
     <div class="form-group">
       <input 
       type="text" 
@@ -60,5 +121,5 @@
     <br>
     <br>
     <input type="submit" class="btn btn-outline-dark" [value]="mode" />
-</form>
+</form> -->
 

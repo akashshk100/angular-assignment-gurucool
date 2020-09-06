@@ -1,5 +1,9 @@
 
-    <h6>Test history for {{ subjectName }}</h6><br>
+    <div class="mat-body-2">
+        <div class="mat-line" style="text-align: center;">Test history</div>
+        <div class="mat-line" style="text-align: center;">{{ subjectName }}</div>
+    </div>
+    <br>
     <div class="list-group">
         <div class="list-group-item list-group-item-action container-fluid" *ngFor = " let test of tests; let i = index; " (mouseenter) = "enableOption(i)" (mouseleave) = "disableOption(i)">
             {{ test.testTitle }}

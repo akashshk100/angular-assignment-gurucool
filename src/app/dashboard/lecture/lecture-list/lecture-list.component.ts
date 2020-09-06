@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from "@angular/core"
+import { Component, Input, OnInit, OnDestroy } from "@angular/core"
 import { LectureService } from "../lecture.service"
 import { Lecture } from "../lecture.model"
   
@@ -13,6 +13,9 @@ export class LectureListComponent implements OnInit{
     }
     emptyLecture: boolean;
     ngOnInit(){
+        if(this.lectureService.lectureLength === 0){
+            this.emptyLecture = true;
+        }
         this.lectureService.lengthChange.subscribe(
             () => {
                 if(this.lectureService.lectureLength === 0){
@@ -53,6 +56,10 @@ export class LectureListComponent implements OnInit{
         this.lectureService.lectures.splice(i, 1);
         this.lectureService.lectureLength = this.lectureService.lectureLength - 1;
         this.lectureService.lengthChange.next();
+        
+    }
+
+    playLecture(){
         
     }
 

@@ -1,51 +1,62 @@
-<form (ngSubmit)="createTest()" #f="ngForm">
-    <h6>Host New Test</h6><br>
-    <div class="form-group">
-      <input type="text" class="form-control"  [value] = " subjectName " disabled />
-    </div>
-    <div class="form-group">
+
+
+<form #f="ngForm">
+    <div class="mat-title">Host New Test</div><br>
+    <mat-form-field appearance="outline" style="width: 100%;">
+      <mat-label>Subject Name</mat-label>
       <input 
-      type="text" 
-      class="form-control"
-      placeholder="Title"
+      matInput 
+      [value]="subjectName"
+      disabled>
+    </mat-form-field>
+    <mat-form-field appearance="outline" style="width: 100%;">
+      <mat-label>Title</mat-label>
+      <input 
+      matInput
       required
       name="title"
       ngModel
       #title="ngModel">
-      <p class="help-block small" style="color: red;" *ngIf="title.valid && f.submitted">*required</p>
-    </div>
-    <div class="form-group">
+    </mat-form-field>
+    <mat-form-field appearance="outline" style="width: 100%;">
+      <mat-label>No. of Questions</mat-label>
       <input 
-      type="number" 
-      class="form-control"
-      placeholder="No. Of Questions"
+      matInput
       required
       name="noOfQue"
       ngModel
       #noOfQue="ngModel">
-      <p class="help-block small" style="color: red;" *ngIf="noOfQue.valid && f.submitted">*required</p>
-    </div>
-    <div class="form-group">
+    </mat-form-field>
+    <mat-form-field appearance="outline" style="width: 100%;">
+      <mat-label>Duration</mat-label>
       <input 
+      matInput
       type="number"
-      class="form-control" 
-      placeholder="Duration"
       required
       name="duration"
       ngModel
       #duration="ngModel">
-      <p class="help-block small" style="color: red;" *ngIf="duration.valid && f.submitted">*required</p>
-    </div>
-    <div class="form-group">
+    </mat-form-field>
+    <mat-form-field appearance="outline" style="width: 100%;">
+      <mat-label>Deadline</mat-label>
       <input 
-      type="date" 
-      class="form-control" 
-      placeholder="yyyy-mm-dd hh:mm:ss"
+      matInput 
+      type="date"
       required
       name="deadline"
       ngModel
       #deadline="ngModel">
-      <p class="help-block small" style="color: red;" *ngIf="deadline.valid && f.submitted">*required</p>
-    </div>
-    <input type="submit" class="btn btn-outline-dark" value="Continue" />
+    </mat-form-field>
+    <p>
+      <button 
+      mat-raised-button 
+      color="primary"
+      [disabled] = "!f.valid "
+      onclick="this.blur()"
+      (click)="createTest()"
+      style="outline: 0px;">
+        Continue
+      </button>
+    </p>
+    
 </form>

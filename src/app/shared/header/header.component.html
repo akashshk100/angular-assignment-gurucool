@@ -1,4 +1,37 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+<mat-toolbar color="primary" style="height: 50px; padding: 0%;">
+  <button mat-icon-button (click)="toggleSidenav()"  onclick="this.blur()" style="outline: 0px;">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <button mat-icon-button style="margin-left: 30px; outline: 0px;"  onclick="this.blur()" (click)="homeClick()">
+    <mat-icon>home</mat-icon>
+    GuruCool
+  </button>
+  <span class="example-spacer"></span>
+  <button mat-icon-button style="outline: 0px; margin-right: 5px;" onclick="this.blur()" [matMenuTriggerFor]="notificationMenu">
+    <mat-icon>notifications</mat-icon>
+    <mat-menu #notificationMenu="matMenu" xPosition="before">
+      <button mat-menu-item>Message 1</button>
+      <button mat-menu-item>Message 2</button>
+    </mat-menu>
+  </button>
+  <button mat-icon-button style="outline: 0px; margin-right: 10px;" onclick="this.blur()"  [matMenuTriggerFor]="profileMenu">
+    <mat-icon>account_circle</mat-icon>
+    <mat-menu #profileMenu="matMenu" xPosition="before">
+      <button mat-menu-item>
+        <mat-icon>settings</mat-icon>
+        User Settings
+      </button>
+      <button mat-menu-item (click)="onLogout()">
+        <mat-icon>exit_to_app</mat-icon>
+        Logout
+      </button>
+    </mat-menu>
+  </button>
+</mat-toolbar>
+
+
+<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="navbar-header">
         <a class="navbar-brand" href="/">GuruCool</a>
     </div>
@@ -25,4 +58,4 @@
             </li>
         </ul>
     </div>
-</nav>
+</nav> -->

@@ -28,10 +28,9 @@ export class AuthService{
         if (username === 'akash@gmail.com' && password === 'akash'){
             this.userService.user = new User(1002, 1, true);
             localStorage.setItem('userData', JSON.stringify(this.userService.user));
+            return true
         }
-        else{
-
-        }
+        return false
     }
     
 }

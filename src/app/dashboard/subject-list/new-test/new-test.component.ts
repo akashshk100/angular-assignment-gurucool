@@ -28,11 +28,12 @@ export class NewTestComponent{
     
     createTest(){
         if(this.form.valid){
+            console.log(this.form.value.deadline)
             this.testTitle = this.form.value.title;
             this.noOfQue = this.form.value.noOfQue;
             this.testDuration = this.form.value.duration;
             this.testDeadline = this.form.value.deadline;
-            this.router.navigate(['dashboard/test', this.testTitle, this.noOfQue, this.testDuration, this.testDeadline]);
+            this.router.navigate(['/dashboard/test', this.testTitle, this.noOfQue, this.testDuration, this.testDeadline]);
         }
     }
     

@@ -10,7 +10,10 @@ import { NotFoundComponent } from './not-found/not-found.component'
 import { AuthGuard } from './auth/auth-guard.service';
 import { AuthService } from './auth/auth.service';
 import { LoginAuthGuard } from './auth/login-auth-guard.service'
-import { UserService } from './user.service'; 
+import { UserService } from './user.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SideNavService } from './shared/header/side-nav.service' 
+
 
 @NgModule({
   declarations: [
@@ -19,11 +22,12 @@ import { UserService } from './user.service';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [LectureService, AuthGuard, AuthService, UserService, LoginAuthGuard],
+  providers: [LectureService, AuthGuard, AuthService, UserService, LoginAuthGuard, SideNavService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

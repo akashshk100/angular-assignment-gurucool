@@ -1,4 +1,69 @@
-<div class="container-fluid">
+
+<mat-grid-list cols="6" rowHeight="2:1">
+  <mat-grid-tile
+      colspan="6"
+      rowspan="1">
+  </mat-grid-tile>
+  <mat-grid-tile
+      colspan="2"
+      rowspan="3">
+  </mat-grid-tile>
+  <mat-grid-tile
+      colspan="2"
+      rowspan="3">
+  </mat-grid-tile>
+  <mat-grid-tile
+      colspan="2"
+      rowspan="3">
+      <div style="padding: 50px;">
+        <div class="mat-title" style="text-align: center; color: #3F51B5;">Welcome to GuruCool</div>
+        <form (ngSubmit)= "onLogin(f)" #f = "ngForm">
+          <mat-form-field appearance="outline" style="width: 100%;">
+            <mat-label>Username</mat-label>
+            <input
+            ngModel 
+            required 
+            email
+            name="username"
+            #username = "ngModel"
+            matInput
+            style="margin: 0%;">
+            <mat-error *ngIf="!username.valid && username.touched">
+              Enter Correct EmailID
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="outline" style="width: 100%;">
+            <mat-label>Password</mat-label>
+            <input 
+            [type]="hide ? 'password' : 'text'" 
+            required
+            ngModel
+            name="password"
+            #password = "ngModel"
+            matInput>
+            <button mat-icon-button matSuffix (click)="hide = !hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+            <mat-error *ngIf="!password.valid && password.touched">
+              Enter Password
+            </mat-error>
+          </mat-form-field>
+          <button 
+          mat-raised-button
+          [disabled] = "!f.valid "
+          color="primary" onclick="this.blur()" style="outline: 0px;">
+          Login</button>
+        </form>
+      </div>
+      
+  </mat-grid-tile>
+  <mat-grid-tile
+      colspan="6"
+      rowspan="1">
+  </mat-grid-tile>
+</mat-grid-list>
+
+<!-- <div class="container-fluid">
     <div class="row no-gutter">
       <div class="d-none d-md-flex col-md-4 col-lg-6"></div>
       <div class="col-md-8 col-lg-6">
@@ -12,42 +77,41 @@
                   <div class="form-group">
                     <div class="alert-danger form-control" *ngIf = "invalidPopin"><span class="text-center small"> Invalid Credentials </span></div>
                   </div>
-                  <div class="form-group">
-                    <input 
-                    type="email" 
-                    class="form-control" 
-                    placeholder="Username"
-                    name = "username"
+                  <mat-form-field appearance="outline" style="width: 100%;">
+                    <mat-label>Username</mat-label>
+                    <input
                     ngModel 
                     required 
                     email
-                    autofocus 
+                    name="username"
+                    #username = "ngModel"
+                    matInput
+                    style="margin: 0%;">
+                    <mat-error *ngIf="!username.valid && username.touched">
+                      Enter Correct EmailID
+                    </mat-error>
+                  </mat-form-field>
+                  <mat-form-field appearance="outline" style="width: 100%;">
+                    <mat-label>Password</mat-label>
+                    <input 
+                    matInput 
+                    [type]="hide ? 'password' : 'text'" 
+                    required
+                    ngModel
+                    name="password"
                     #username = "ngModel">
-                    <span class="help-block small" style=" color: red; " *ngIf = " !username.valid && username.touched">Enter valid username</span>
-                  </div>
-                  <div class="form-group">
-                    <div class="input-group">
-                      <input 
-                        type="password" 
-                        class="form-control" 
-                        placeholder="password" 
-                        name="password" 
-                        [(ngModel)] = " passwordText " 
-                        required
-                        minlength="5"
-                        #password = "ngModel">
-                        <div class="input-group-text" role="button" (click) = " onShowPassword() "><img src="../assets/eye.svg"></div>
-                    </div>
-                    <span class="help-block small p-2" *ngIf = " showPassword " > 
-                      Password: {{ passwordText }}
-                    </span>
-                    <span class="help-block small" style="color: red;" *ngIf = " !password.valid && password.touched" > 
+                    <button mat-icon-button matSuffix (click)="hide = !hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                    <mat-error *ngIf="!username.valid && username.touched">
                       Enter Password
-                    </span>
-                  </div>
+                    </mat-error>
+                  </mat-form-field>
                   <button 
-                  class="btn btn-primary btn-login mb-2"
-                  [disabled] = " !f.valid ">Login</button>
+                  mat-raised-button
+                  [disabled] = "!f.valid "
+                  color="primary">
+                  Login</button>
                 </form>
               </div>
             </div>
@@ -56,4 +120,4 @@
       </div>
     </div>
   </div>
-  
+   -->

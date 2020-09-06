@@ -4,6 +4,8 @@ import { CommonModule } from "@angular/common";
 import { FormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
 import { LoginAuthGuard } from './login-auth-guard.service'
+import { MaterialModule } from '../material/material.module'
+
 
 @NgModule({
     declarations: [
@@ -12,6 +14,7 @@ import { LoginAuthGuard } from './login-auth-guard.service'
     imports: [
         CommonModule, 
         FormsModule, 
+        MaterialModule,
         RouterModule.forChild([{path: '', component: LoginComponent, canActivate: [LoginAuthGuard]}])
     ]
 })

@@ -1,10 +1,64 @@
-<br><h6>Uploaded Lectures for {{ subjectName }}</h6><br>
-<div class="list-group border border-dark" *ngIf="emptyLecture">
-  <div class="list-group-item  list-group-item-action">
-    <p class="small">Empty List: No Lectures to Display</p>
-  </div>
-</div>
-<div class="list-group border border-dark" *ngIf="!emptyLecture">
+<div class="mat-title">Uploaded Lectures: {{ subjectName }}</div>
+
+<mat-accordion>
+  <mat-expansion-panel disabled *ngIf="emptyLecture">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Empty List: No Lectures to Display
+      </mat-panel-title>
+      <mat-panel-description>
+       
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+  </mat-expansion-panel>
+  <mat-expansion-panel 
+  *ngFor = " let lecture of tempLectures; let i = index; " 
+  (opened)="panelOpenState = true" 
+  (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+    <mat-panel-title>
+      <div class="mat-body-1">{{ lecture.topic }}</div>
+    </mat-panel-title>
+    <mat-panel-description>
+  
+    </mat-panel-description>
+    </mat-expansion-panel-header>
+    <span matLine>
+      <span class="mat-caption" style="padding: 20px;">
+          Published: {{tempLectures[i].published | date}}
+      </span>
+      <span class="mat-caption" style="padding: 20px;">
+          Attendance: {{tempLectures[i].attendancePercentage}}%
+      </span>
+      <span 
+      class = "mat-caption" 
+      role="button"
+      style="padding: 20px;" 
+      (click) = "editLecture(i)">
+      <img class="small" src="../../../../assets/pencil-square.svg"> Edit 
+      </span>
+      <span 
+      class = "mat-caption" 
+      role="button"
+      style="padding: 20px;"
+      (click) = "deleteLecture(i)">
+      <img class="small" src="../../../../assets/trash-fill.svg"> Delete
+      </span>
+      <span 
+      class = "mat-caption" 
+      role="button"
+      style="padding: 10px;"
+      (click) = "playLecture(i)">
+      <img class="small" src="../../../../assets/play-fill.svg"> Watch
+      </span>
+    </span>
+    <div matLine style="padding: 20px;">
+      <div class="mat-body-1">{{ lecture.description }}</div>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>
+
+<!-- <div class="list-group border border-dark" *ngIf="!emptyLecture">
     <div class="list-group-item list-group-item-action" *ngFor = " let lecture of tempLectures; let i = index; " (mouseenter) = "enableOption(i)" (mouseleave) = "disableOption(i)">
         {{lecture.topic}}
         <span role="button" class="btn btn-outline-dark float-right dropdown-toggle" (click) = " changeDetailStatus(i)" >
@@ -60,4 +114,4 @@
             </tbody>
         </table>
     </div>
-</div>
+</div> -->

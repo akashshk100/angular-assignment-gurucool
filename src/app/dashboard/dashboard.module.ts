@@ -16,6 +16,7 @@ import { TestComponent } from './test/test.component'
 import { TakeTestComponent } from './take-test/take-test.component'
 import { DashboardRoutingModule } from './dashboard-routing.module'
 import { SharedModule } from '../shared/shared.module'
+import { MaterialModule } from '../material/material.module';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { SharedModule } from '../shared/shared.module'
         CommonModule,
         FormsModule,
         DashboardRoutingModule,
-        SharedModule
+        SharedModule,
+        MaterialModule
     ]
 })
 export class DashboardModule{
