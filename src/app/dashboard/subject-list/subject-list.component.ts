@@ -31,6 +31,9 @@ export class SubjectListComponent{
     newTest(i){
         this.router.navigate(['new-test', this.subjectId[i], this.subjects[i]], { relativeTo: this.route })
     }
+    newLecture(i){
+        this.router.navigate(['new-lecture', this.subjectId[i], this.subjects[i]], { relativeTo: this.route })
+    }
     viewSubject(i){
         this.router.navigate(['dashboard/lecture', this.subjectId[i], this.subjects[i]])
     }

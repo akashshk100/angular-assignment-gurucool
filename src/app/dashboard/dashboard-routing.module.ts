@@ -10,6 +10,7 @@ import { SubjectListComponent } from './subject-list/subject-list.component';
 import { AuthGuard } from '../auth/auth-guard.service'
 import { TestComponent } from './test/test.component' 
 import { TakeTestComponent } from './take-test/take-test.component'
+import { NewLectureComponent } from './subject-list/new-lecture/new-lecture.component';
 
 const routes: Routes = [
     {path: '', canActivate: [AuthGuard] ,component: DashboardComponent, children: [
@@ -18,7 +19,8 @@ const routes: Routes = [
           {path: '', redirectTo: 'select-sub', pathMatch: 'full'},
           {path: 'select-sub', component: SelectSubComponent},
           {path: 'test/:subjectId/:subjectName', component: TestListComponent},
-          {path: 'new-test/:subjectId/:subjectName', component: NewTestComponent}
+          {path: 'new-test/:subjectId/:subjectName', component: NewTestComponent},
+          {path: 'new-lecture/:subjectId/:subjectName', component: NewLectureComponent}
         ]},
         {path: 'lecture/:subjectId/:subjectName', component: LectureComponent},
         {path: 'test/:title/:noOfQue/:duration/:deadline', component: TestComponent},

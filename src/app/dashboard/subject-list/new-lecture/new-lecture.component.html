@@ -1,0 +1,123 @@
+<div class="mat-title">Upload Lecture</div>
+
+<form #f = "ngForm">
+  <mat-form-field appearance="outline" style="width: 100%;">
+    <mat-label>Subject Name</mat-label>
+    <input 
+    matInput 
+    [value]="subjectName"
+    disabled>
+  </mat-form-field>
+  <mat-form-field appearance="outline" style="width: 100%;">
+    <mat-label>Topic</mat-label>
+    <input 
+    matInput
+    required
+    name="topic"
+    ngModel
+    #topic="ngModel">
+  </mat-form-field>
+  <mat-form-field appearance="outline" style="width: 100%;">
+    <mat-label>Description</mat-label>
+    <textarea 
+    rows="5"
+    matInput
+    required
+    name="description"
+    ngModel>
+    </textarea>
+  </mat-form-field>
+  <mat-form-field appearance="outline" style="width: 100%;">
+    <mat-label>Video File</mat-label>
+    <ngx-mat-file-input
+    name="videoFile"
+    ngModel
+    required
+    #videoFile = "ngModel"></ngx-mat-file-input>
+    <mat-icon matSuffix>folder</mat-icon>
+  </mat-form-field>
+  <mat-form-field appearance="outline" style="width: 100%;">
+    <mat-label>Resource File</mat-label>
+    <ngx-mat-file-input
+    name="resourceFile"
+    ngModel
+    required
+    #resourceFile = "ngModel"></ngx-mat-file-input>
+    <mat-icon matSuffix>folder</mat-icon>
+  </mat-form-field>
+  <p>
+    <button 
+    mat-raised-button 
+    color="primary"
+    [disabled] = "!f.valid "
+    onclick="this.blur()"
+    (click)="addLecture()"
+    style="outline: 0px;">
+      Upload
+    </button>
+  </p>
+</form>
+
+<!-- <form enctype="multipart/form-data" (ngSubmit) ="addLecture()" #f = "ngForm">
+    <div class="form-group">
+      <input 
+      type="text" 
+      class="form-control" 
+      placeholder="subjectNo" 
+      [value] = " subjectName " 
+      disabled 
+      name="subjectName">
+    </div>
+    <div class="form-group">
+      <input 
+      type="text" 
+      class="form-control" 
+      placeholder="Topic"
+      name = "topic"
+      ngModel
+      #topic = "ngModel"
+      required>
+      <div class="help-block small" style="color: red;" *ngIf = " !topic.valid && f.submitted && !formReset">Add Topic</div>
+    </div>
+    <div class="form-group">
+      <textarea 
+      class="form-control" 
+      placeholder="Descrition"
+      rows="4"
+      name="description" 
+      ngModel></textarea>
+    </div>
+    <div class="custom-file mb-3">
+      <input 
+      type="file" 
+      class="custom-file-input" 
+      id="customFile" 
+      (change)=" changeVideoLabel() " 
+      name="videoFile"
+      ngModel
+      required
+      #videoFile = "ngModel"
+      [disabled]=" mode === 'update' ">
+      <label class="custom-file-label" for="customFile">{{ videoFileLabel }}</label>
+      <div class="help-block small" style="color: red;" *ngIf = "!videoFile.valid && f.submitted && !formReset">Add Video File</div>
+    </div>
+    <br>
+    <div class="custom-file">
+        <input 
+        type="file" 
+        class="custom-file-input" 
+        id="customFile" 
+        (change) = " changeResourceLabel() " 
+        name="resourceFile"
+        ngModel
+        required
+        #resourceFile="ngModel"
+        [disabled]=" mode === 'update' ">
+        <label class="custom-file-label" for="customFile">{{ resourceFileLabel }}</label>
+        <div class="help-block small" style="color: red;" *ngIf = "!resourceFile.valid && f.submitted && !formReset">Add Resource File</div>
+    </div>
+    <br>
+    <br>
+    <input type="submit" class="btn btn-outline-dark" [value]="mode" />
+</form> -->
+
