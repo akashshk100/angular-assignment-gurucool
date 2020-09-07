@@ -17,6 +17,7 @@ import { MaterialFileInputModule } from 'ngx-material-file-input'
 import {MatPaginatorModule} from '@angular/material/paginator'
 import {MatTableModule} from '@angular/material/table'
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'
+import {MatBadgeModule} from '@angular/material/badge'
 
 
 const MaterialComponent = [
@@ -37,7 +38,8 @@ const MaterialComponent = [
   MaterialFileInputModule,
   MatPaginatorModule,
   MatTableModule,
-  MatProgressSpinnerModule
+  MatProgressSpinnerModule,
+  MatBadgeModule
 ]
 
 @NgModule({

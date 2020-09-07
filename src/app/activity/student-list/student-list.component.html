@@ -1,4 +1,4 @@
-<div style="display: flex; justify-content: center; justify-items: center; margin-top: 20px;" *ngIf="isLoading">
+<div style="display: flex; justify-content: center; justify-items: center; margin-top: 20px;" *ngIf="isLoading && !httpError">
   <mat-spinner [diameter]="50"></mat-spinner>
 </div>
 <div class="container mt-5" [hidden]="isLoading">

@@ -8,26 +8,39 @@
     GuruCool
   </button>
   <span class="example-spacer"></span>
-  <button mat-icon-button style="outline: 0px; margin-right: 5px;" onclick="this.blur()" [matMenuTriggerFor]="notificationMenu">
-    <mat-icon>notifications</mat-icon>
-    <mat-menu #notificationMenu="matMenu" xPosition="before">
-      <button mat-menu-item>Message 1</button>
-      <button mat-menu-item>Message 2</button>
-    </mat-menu>
+  <button 
+  mat-icon-button 
+  style="outline: 0px; margin-right: 5px;" 
+  onclick="this.blur()"
+  (click)="badgeHidden = true" 
+  [matMenuTriggerFor]="notificationMenu">
+    <mat-icon [matBadge]="notifications.length" matBadgeColor="warm" [matBadgeHidden]="badgeHidden">notifications</mat-icon>
   </button>
+  <mat-menu #notificationMenu="matMenu" xPosition="before" onclick="this.blur()">
+    <div mat-menu-item *ngFor="let notification of notifications" style="height: fit-content; width: 400px; margin-top: 10px;">
+      <div matLine class="mat-body-1">
+        <span class="mat-body-2" style="color: #3F51B5;">{{notification.name}}</span>
+        <span class="mat-caption" style="float: right;">{{notification.dateTime | date:'d MMM yy, h:m'}}</span>
+      </div>
+      <div matLine class="mat-caption" style="word-wrap: break-word; white-space: pre-wrap;">
+        {{notification.message}}
+      </div>
+      <mat-divider style="margin-top: 10px;"></mat-divider>
+    </div>
+  </mat-menu>
   <button mat-icon-button style="outline: 0px; margin-right: 10px;" onclick="this.blur()"  [matMenuTriggerFor]="profileMenu">
     <mat-icon>account_circle</mat-icon>
-    <mat-menu #profileMenu="matMenu" xPosition="before">
-      <button mat-menu-item>
-        <mat-icon>settings</mat-icon>
-        User Settings
-      </button>
-      <button mat-menu-item (click)="onLogout()">
-        <mat-icon>exit_to_app</mat-icon>
-        Logout
-      </button>
-    </mat-menu>
   </button>
+  <mat-menu #profileMenu="matMenu" xPosition="before">
+    <div mat-menu-item style="width: 170px;">
+      <mat-icon>person</mat-icon>
+      Profile
+    </div>
+    <div mat-menu-item (click)="onLogout()" style="width: 170px;">
+      <mat-icon>exit_to_app</mat-icon>
+      Logout
+    </div>
+  </mat-menu>
 </mat-toolbar>
 
 
