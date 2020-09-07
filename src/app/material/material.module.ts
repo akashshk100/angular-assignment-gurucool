@@ -15,6 +15,8 @@ import {MatNativeDateModule} from '@angular/material/core'
 import {MatExpansionModule} from '@angular/material/expansion'
 import { MaterialFileInputModule } from 'ngx-material-file-input';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatTableModule} from '@angular/material/table';
+
 
 const MaterialComponent = [
   MatIconModule,
@@ -32,7 +34,8 @@ const MaterialComponent = [
   MatNativeDateModule,
   MatExpansionModule,
   MaterialFileInputModule,
-  MatPaginatorModule
+  MatPaginatorModule,
+  MatTableModule
 ]
 
 @NgModule({
