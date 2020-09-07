@@ -25,14 +25,16 @@ export class StudentListComponent implements OnInit ,AfterViewInit{
 
     STUDENT_DATA: Student[] = [];
     dataSource
+    isLoading: boolean = true
 
     ngOnInit(){
         this.http.get("https://api.mockaroo.com/api/896c2380?count=20&key=6b5d9e30")
         .subscribe( (response: any[]) => {
+            this.isLoading = false
             this.STUDENT_DATA = response
-            console.log(this.STUDENT_DATA)
             this.dataSource = new MatTableDataSource<Student>(this.STUDENT_DATA);
             this.dataSource.paginator = this.paginator;
+            
         },
         (errorResponse) => {
             console.log("error")

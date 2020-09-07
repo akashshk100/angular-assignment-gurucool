@@ -13,9 +13,10 @@ import {MatSnackBarModule} from '@angular/material/snack-bar'
 import {MatDatepickerModule} from '@angular/material/datepicker'
 import {MatNativeDateModule} from '@angular/material/core'
 import {MatExpansionModule} from '@angular/material/expansion'
-import { MaterialFileInputModule } from 'ngx-material-file-input';
-import {MatPaginatorModule} from '@angular/material/paginator';
-import {MatTableModule} from '@angular/material/table';
+import { MaterialFileInputModule } from 'ngx-material-file-input'
+import {MatPaginatorModule} from '@angular/material/paginator'
+import {MatTableModule} from '@angular/material/table'
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'
 
 
 const MaterialComponent = [
@@ -35,7 +36,8 @@ const MaterialComponent = [
   MatExpansionModule,
   MaterialFileInputModule,
   MatPaginatorModule,
-  MatTableModule
+  MatTableModule,
+  MatProgressSpinnerModule
 ]
 
 @NgModule({

@@ -1,4 +1,7 @@
-<div class="container mt-5">
+<div style="display: flex; justify-content: center; justify-items: center; margin-top: 20px;" *ngIf="isLoading">
+  <mat-spinner [diameter]="50"></mat-spinner>
+</div>
+<div class="container mt-5" [hidden]="isLoading">
     <div class="mat-title">Student List</div>
     <div class="mat-elevation-z8">
         <table mat-table [dataSource]="dataSource" style="width: 100%;">
@@ -14,12 +17,12 @@
           </ng-container>
     
           <ng-container matColumnDef="attendance">
-            <th mat-header-cell *matHeaderCellDef> Avg. Attendance(%) </th>
+            <th mat-header-cell *matHeaderCellDef> Avg. Attendance (%) </th>
             <td mat-cell *matCellDef="let element"> {{element.attendance}} </td>
           </ng-container>
       
           <ng-container matColumnDef="score">
-            <th mat-header-cell *matHeaderCellDef> Avg. Test Score(%) </th>
+            <th mat-header-cell *matHeaderCellDef> Avg. Test Score (%) </th>
             <td mat-cell *matCellDef="let element"> {{element.score}} </td>
           </ng-container>
       
