@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist\\gurucool",
+    "public": "dist/gurucool",
     "ignore": [
       "firebase.json",
       "**/.*",
