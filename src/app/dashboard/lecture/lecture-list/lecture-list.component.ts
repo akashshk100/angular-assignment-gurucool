@@ -1,18 +1,28 @@
-import { Component, Input, OnInit, OnDestroy } from "@angular/core"
+import { Component, ViewChild, OnInit, AfterViewInit } from "@angular/core"
 import { LectureService } from "../lecture.service"
 import { Lecture } from "../lecture.model"
+import {MatPaginator} from '@angular/material/paginator'
   
 @Component({
     selector: "lec-list-tag",
     templateUrl: "./lecture-list.component.html"
 })
-export class LectureListComponent implements OnInit{
+export class LectureListComponent implements OnInit, AfterViewInit{
 
     constructor(private lectureService: LectureService){
 
     }
     emptyLecture: boolean;
+    lectureLength: number
+
+    @ViewChild(MatPaginator) paginator: MatPaginator;
+
+    ngAfterViewInit() {
+        this.dataSource.paginator = this.paginator;
+    }
+
     ngOnInit(){
+        this.lectureLength = this.lectureService.lectureLength
         if(this.lectureService.lectureLength === 0){
             this.emptyLecture = true;
         }
