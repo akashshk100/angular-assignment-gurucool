@@ -1,5 +1,6 @@
 import { Component } from '@angular/core'
 import { Router, ActivatedRoute } from '@angular/router'
+import { SubjectService } from './subject.service'
 
 @Component({
     selector: 'sub-list-tag',
@@ -7,14 +8,14 @@ import { Router, ActivatedRoute } from '@angular/router'
 }) 
 export class SubjectListComponent{
     
-    constructor(private router: Router, private route: ActivatedRoute){
+    constructor(private router: Router, private route: ActivatedRoute, private subjectService: SubjectService){
     
     }
 
-    subjects: string[] = ["Physics", "Basic Electronic Engineering","Chemistry","Basic Civil Engineering","Engineering Mathematics"]
-    avgAttendance: number[] = [88.2, 93, 95.5, 99.01, 72];
-    class: string[] = ["FE", "FE", "FE", "FE", "FE"];
-    subjectId = [20,25,32,21,17]; 
+    subjects = this.subjectService.subjects
+    // avgAttendance: number[] = [88.2, 93, 95.5, 99.01, 72];
+    // class: string[] = ["FE", "FE", "FE", "FE", "FE"];
+    // subjectId = [20,25,32,21,17]; 
     
     option: boolean[] = [];
 
@@ -26,15 +27,15 @@ export class SubjectListComponent{
     }
 
     viewTest(i){
-        this.router.navigate(['test', this.subjectId[i], this.subjects[i]], { relativeTo: this.route })
+        this.router.navigate(['test', this.subjectService.subjects[i].id, this.subjectService.subjects[i].name], { relativeTo: this.route })
     }
     newTest(i){
-        this.router.navigate(['new-test', this.subjectId[i], this.subjects[i]], { relativeTo: this.route })
+        this.router.navigate(['new-test', this.subjectService.subjects[i].id, this.subjectService.subjects[i].name], { relativeTo: this.route })
     }
     newLecture(i){
-        this.router.navigate(['new-lecture', this.subjectId[i], this.subjects[i]], { relativeTo: this.route })
+        this.router.navigate(['new-lecture', this.subjectService.subjects[i].id, this.subjectService.subjects[i].name], { relativeTo: this.route })
     }
     viewSubject(i){
-        this.router.navigate(['dashboard/lecture', this.subjectId[i], this.subjects[i]])
+        this.router.navigate(['dashboard/lecture', this.subjectService.subjects[i].id, this.subjectService.subjects[i].name])
     }
 }

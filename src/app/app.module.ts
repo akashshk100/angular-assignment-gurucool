@@ -13,6 +13,7 @@ import { LoginAuthGuard } from './auth/login-auth-guard.service'
 import { UserService } from './user.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SideNavService } from './shared/header/side-nav.service' 
+import { SubjectService } from './dashboard/subject-list/subject.service'
 
 
 @NgModule({
@@ -27,7 +28,7 @@ import { SideNavService } from './shared/header/side-nav.service'
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [LectureService, AuthGuard, AuthService, UserService, LoginAuthGuard, SideNavService],
+  providers: [LectureService, AuthGuard, AuthService, UserService, LoginAuthGuard, SideNavService, SubjectService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

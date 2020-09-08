@@ -1,12 +1,12 @@
 <div style="width: 70%; float: left; padding: 20px;">
-    <br>
-    <div class="mat-title">Subscribed Subjects</div><br>
+    
+    <div class="mat-title">Subscribed Subjects</div>
     <mat-list>
         <mat-list-item  *ngFor = " let subject of subjects; let i = index; " (mouseenter) = "enableOption(i)" (mouseleave) = "disableOption(i)"
         style="border: 2px; border-color: black;"> 
             <span matLine>
                 <div class="mat-body-2">
-                    {{ subject }}
+                    {{ subject.name }}
                     <span style="flex: 1 1 auto;"></span>
                     <button mat-icon-button (click)="viewSubject(i)" style="float: right;">
                         <mat-icon mat-list-icon >keyboard_arrow_right</mat-icon>
@@ -15,10 +15,10 @@
             </span>
             <span matLine *ngIf="option[i]">
                 <span class="mat-caption p-3">
-                    Avg. Attendance: {{avgAttendance[i]}}
+                    Avg. Attendance: {{subject.avgAttendance}}
                 </span>
                 <span class="mat-caption p-3">
-                    Class: {{class[i]}}
+                    Class: {{subject.class}}
                 </span>
                 <span class="mat-caption p-3" role="button" (click)="viewTest(i)">
                     <img src="../../../assets/list-ul.svg"> Tests

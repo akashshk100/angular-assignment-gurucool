@@ -4,6 +4,7 @@ import { Lecture } from '../lecture.model';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ActivatedRoute, Params } from '@angular/router';
+import { SubjectService } from '../../subject-list/subject.service';
 
 @Component({
     selector: 'edit-lec-tag',
@@ -11,20 +12,23 @@ import { ActivatedRoute, Params } from '@angular/router';
 })
 export class EditLectureComponent implements OnInit {
     @ViewChild('f') form:NgForm;
-    constructor(private lectureService: LectureService, private router: Router, private route: ActivatedRoute){
+    constructor(private lectureService: LectureService, 
+        private router: Router, 
+        private route: ActivatedRoute,
+        private subjectService: SubjectService){
 
     }
     formReset: boolean;
     hide: boolean = true;
     updateIndex: number;
-    subjectId: number
+    //subjectId: number
     subjectName: string
     ngOnInit(){
         this.subjectName = this.lectureService.subjectName
+        
         this.lectureService.lectureEdit
         .subscribe(
             (index: number) => {
-                console.log(this.form)
                 this.hide = false;
                 this.updateIndex = index;
                 this.form.setValue({
@@ -35,6 +39,11 @@ export class EditLectureComponent implements OnInit {
                 })
             }
         )
+
+        this.subjectService.subjectChange
+        .subscribe( () => {
+            this.subjectName = this.lectureService.subjectName
+        })
     }
 
 

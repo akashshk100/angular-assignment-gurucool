@@ -18,6 +18,7 @@ import {MatPaginatorModule} from '@angular/material/paginator'
 import {MatTableModule} from '@angular/material/table'
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'
 import {MatBadgeModule} from '@angular/material/badge'
+import {MatTabsModule} from '@angular/material/tabs'
 
 
 const MaterialComponent = [
@@ -39,7 +40,8 @@ const MaterialComponent = [
   MatPaginatorModule,
   MatTableModule,
   MatProgressSpinnerModule,
-  MatBadgeModule
+  MatBadgeModule,
+  MatTabsModule
 ]
 
 @NgModule({
