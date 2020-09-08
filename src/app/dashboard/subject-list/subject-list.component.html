@@ -1,7 +1,42 @@
 <div style="width: 70%; float: left; padding: 20px;">
     
     <div class="mat-title">Subscribed Subjects</div>
-    <mat-list>
+    <mat-accordion>
+        <mat-expansion-panel 
+        *ngFor = " let subject of subjects; let i = index; "
+        (opened)="panelOpenState = true" 
+        (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+          <mat-panel-title>
+            <div class="mat-body-1">{{ subject.name }}</div>
+          </mat-panel-title>
+          <mat-panel-description>
+        
+          </mat-panel-description>
+          </mat-expansion-panel-header>
+          <span matLine>
+            <span class="mat-caption p-3">
+                Avg. Attendance: {{subject.avgAttendance}}
+            </span>
+            <span class="mat-caption p-3">
+                Class: {{subject.class}}
+            </span>
+            <span class="mat-caption p-3" role="button" (click)="viewTest(i)">
+                <img src="../../../assets/list-ul.svg"> Tests
+            </span>
+            <span class="mat-caption p-3" role="button" (click)="newTest(i)">
+                <img src="../../../assets/plus.svg"> New Test
+            </span>
+            <span class="mat-caption p-3" role="button" (click)="newLecture(i)">
+                <img src="../../../assets/plus.svg"> New Lecture
+            </span>
+            <span class="mat-caption p-3" role="button" (click)="viewSubject(i)">
+                <img src="../../../assets/arrow-bar-right.svg"> To Lectures
+            </span>
+          </span>
+        </mat-expansion-panel>
+    </mat-accordion>
+    <!-- <mat-list>
         <mat-list-item  *ngFor = " let subject of subjects; let i = index; " (mouseenter) = "enableOption(i)" (mouseleave) = "disableOption(i)"
         style="border: 2px; border-color: black;"> 
             <span matLine>
@@ -32,7 +67,7 @@
             </span>
             <mat-divider></mat-divider>
         </mat-list-item>
-    </mat-list>
+    </mat-list> -->
 </div>
 <div style="width: 30%; float: right; padding: 20px">
     <router-outlet>
