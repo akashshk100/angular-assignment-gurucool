@@ -30,7 +30,12 @@
             <span class="mat-caption p-3" role="button" (click)="newLecture(i)">
                 <img src="../../../assets/plus.svg"> New Lecture
             </span>
-            <span class="mat-caption p-3" role="button" (click)="viewSubject(i)">
+            <span 
+            class="mat-caption p-3" 
+            role="button" 
+            (click)="viewSubject(i)" 
+            matTooltip="Towards the lecture board"
+            matTooltipPosition="above">
                 <img src="../../../assets/arrow-bar-right.svg"> To Lectures
             </span>
           </span>

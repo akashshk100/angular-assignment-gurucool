@@ -19,6 +19,7 @@ import {MatTableModule} from '@angular/material/table'
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'
 import {MatBadgeModule} from '@angular/material/badge'
 import {MatTabsModule} from '@angular/material/tabs'
+import {MatTooltipModule} from '@angular/material/tooltip'
 
 
 const MaterialComponent = [
@@ -41,7 +42,8 @@ const MaterialComponent = [
   MatTableModule,
   MatProgressSpinnerModule,
   MatBadgeModule,
-  MatTabsModule
+  MatTabsModule,
+  MatTooltipModule
 ]
 
 @NgModule({
